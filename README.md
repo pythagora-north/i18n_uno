@@ -1,6 +1,6 @@
 # i18nUno
 
-i18nUno is a gem that helps you translate your Rails application into any language you choose. It utilizes the OpenAI API for translations and supports over 100 languages. It's easy to use, and by implementing Git hooks, you can set it up to automatically add new translations or delete old ones as a pre-commit hook.
+i18nUno is a gem that helps you translate your Rails application into any language you choose. It utilizes the OpenAI API for translations and supports over 100 languages. It's easy to use, and by implementing Git hooks, you can set it up to automatically add new translations or delete old ones via a pre-commit hook.
 
 ## Installation
 
