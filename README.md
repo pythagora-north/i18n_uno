@@ -61,7 +61,7 @@ If new keys are added during development, running the above command again will a
 
 Your default locale serves as the foundational reference for your application's internationalization. Whenever modifications are made to the localization files, executing the previously mentioned gem command will automatically update translations across all other supported languages, adding or removing them as necessary.
 
-To ensure seamless integration of this process, it's advisable to configure a pre-commit hook that triggers the above command. Gem such as (lefthook)[https://github.com/evilmartians/lefthook] can help with that.
+To ensure seamless integration of this process, it's advisable to configure a pre-commit hook that triggers the above command. Gem such as [lefthook](https://github.com/evilmartians/lefthook) can help with that.
 
 ## Setting up application for internationalization (Optional)
 
