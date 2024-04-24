@@ -38,7 +38,7 @@ Although changing the Open AI model is supported, it is strongly recommended to 
 
 This is example of the initializer
 
-```
+```ruby
 I18nUno.configure do |config|
   config.open_ai_key = ENV['OPEN_AI_API_KEY']
   config.default_locale = :en
