@@ -1,3 +1,5 @@
+<img src="https://github.com/pythagora-north/i18n_uno/blob/main/i18nUno.png?raw=true" alt="Logo" width="130" height="130">
+
 # i18nUno
 
 i18nUno is a gem that helps you translate your Rails application into any language you choose. It utilizes the OpenAI API for translations and supports over 100 languages. It's easy to use, and by implementing Git hooks, you can set it up to automatically add new translations or delete old ones via a pre-commit hook.
