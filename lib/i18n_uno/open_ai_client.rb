@@ -1,4 +1,7 @@
+
 # frozen_string_literal: true
+
+require 'faraday'
 
 module I18nUno
   class OpenAIClient

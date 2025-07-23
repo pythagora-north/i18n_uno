@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'yaml'
 require 'fileutils'
 require 'i18n_uno/files/content_change'
 
