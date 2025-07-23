@@ -36,6 +36,8 @@ end
 
 Although changing the Open AI model is supported, it is strongly recommended to stick with gpt-4 models due to the significant quality difference compared to gpt-3 models.
 
+From version 0.1.1 i18nUno leverages OpenAI's [JSON mode](https://platform.openai.com/docs/guides/text-generation/json-mode) when requesting translations. This greatly improves the reliability of parsing the responses returned by the API.
+
 This is example of the initializer
 
 ```ruby
