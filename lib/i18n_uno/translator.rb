@@ -36,19 +36,18 @@ module I18nUno
       translated_values = []
 
       values_to_translate.each_slice(200) do |chunk|
-        messages = [%Q(
-          Please translate the following list of strings from the source language specified by '#{source_file.locale}'
-          to the target language indicated by '#{target_file.locale}'. The translations should be suitable for use
-          in a user interface, taking into account that shorter strings are likely to be used as button labels or
-          element captions. Never translate inside "%{}" brackets. The output should be in the form of an array
-          containing the translated messages, ensuring that each translated value is accurate and correctly formatted
-          for JSON parsing. Special attention should be paid to maintaining the context and usability of each UI
-          element in the target language. Below is the list for translation:
-        ).gsub(/\s{2,}/, ' ').strip]
+        system_message = %Q(
+          You are a translation engine. Translate the following list of strings from '#{source_file.locale}'
+          to '#{target_file.locale}'. Preserve placeholders like "%{}" and respond only with a JSON array of
+          translated strings that can be parsed without modification.
+        ).gsub(/\s{2,}/, ' ').strip
 
-        messages << chunk.to_json
+        messages = [
+          { role: :system, content: system_message },
+          { role: :user, content: chunk.to_json }
+        ]
 
-        response = client.complete(messages: messages)
+        response = client.complete(messages: messages, response_format: { type: 'json_object' })
         chunk_translated_values = JSON.parse(response)
 
         translated_values.concat(chunk_translated_values)

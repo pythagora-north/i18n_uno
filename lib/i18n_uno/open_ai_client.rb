@@ -17,13 +17,16 @@ module I18nUno
       end
     end
 
-    def complete(messages:)
+    def complete(messages:, response_format: nil)
+      request_body = {
+        model: I18nUno.config.open_ai_model,
+        messages: messages
+      }
+
+      request_body[:response_format] = response_format if response_format
+
       response = @connection.post('/v1/chat/completions') do |request|
-        request.body = {
-          model: I18nUno.config.open_ai_model,
-          messages: messages.map { |message| { role: :user, content: message } },
-          max_tokens: 4096
-        }.to_json
+        request.body = request_body.to_json
       end
 
       JSON.parse(response.body)['choices'].first['message']['content']
